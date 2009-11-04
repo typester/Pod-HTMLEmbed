@@ -54,9 +54,11 @@ __PACKAGE__->meta->make_immutable;
 
 __END__
 
+=for stopwords Str HTMLEmbed html pod2html url
+
 =head1 NAME
 
-Pod::HTMLEmbed - 
+Pod::HTMLEmbed - Make clean html snippets from POD
 
 =head1 SYNOPSIS
 
@@ -75,17 +77,70 @@ Or search by name in specified directory
     my $p   = Pod::HTMLEmbed->new( search_dir => ['/path/to/dir'] );
     my $pod = $p->find('Moose');
 
+See L<Pod::HTMLEmbed::Entry> for methods for C<$pod>.
+
 =head1 DESCRIPTION
 
-Stub documentation for this module was created by ExtUtils::ModuleMaker.
-It looks like the author of the extension was negligent enough
-to leave the stub unedited.
+This module generates small and clean HTML from POD file.
 
-Blah blah blah.
+Unlike other pod2html modules, this module enables you to get section based html snippets.
+For example, you can get an html for SYNOPSIS section by following code:
+
+    my $html = $pod->section('SYNOPSIS');
+
+Also you can get simple "Table of contents" html like:
+
+    <ul>
+    <li><a href="#NAME">NAME</a></li>
+    <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+    <li><a href="#METHODS">METHODS</a></li>
+     :
+    </ul>
+
+by following code:
+
+    my $toc_html = $pod->toc;
+
+You can easily create custom pod viewer with this module. Enjoy!
+
+=head1 METHODS
+
+=head2 new(%options)
+
+Create new L<Pod::HTMLEmbed> object. pod searcher/loader object.
+
+Available options:
+
+=over 4
+
+=item search_dir => 'ArrayRef'
+
+Pod search directory.
+
+If this value is set, C<find> method use this directory as search target.
+Otherwise search C<@INC>.
+
+=item url_prefix => 'Str'
+
+URL prefix for pod link url. Default is C<http://search.cpan.org/perldoc?>.
+
+=back
+
+=head2 find($pod_name)
+
+Find pod by $pod_name and return L<Pod::HTMLEmbed::Entry> object if it exists.
+
+=head2 load($pod_file)
+
+Load pod file (C<$pod_file>) and return L<Pod::HTMLEmbed::Entry> object if it exists.
+
+=head1 SEE ALSO
+
+L<Pod::HTMLEmbed::Entry>.
 
 =head1 AUTHOR
 
-Daisuke Murase <typester@cpan.org>
+Daisuke Murase C<typester@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
