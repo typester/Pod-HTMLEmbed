@@ -3,6 +3,13 @@ name 'Pod-HTMLEmbed';
 all_from 'lib/Pod/HTMLEmbed.pm';
 
 requires 'Any::Moose' => '0.10';
+requires 'Carp::Clan';
+requires 'Pod::Simple::Search';
+requires 'Pod::Simple::XHTML';
+requires 'HTML::TreeBuilder';
+requires 'URI::Escape';
+requires 'HTML::Entities';
+requires 'List::Util';
 
 test_requires 'Test::More' => '0.88';
 author_tests('xt');
