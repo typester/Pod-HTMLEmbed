@@ -30,7 +30,6 @@ has _context => (
     is       => 'ro',
     isa      => 'Pod::HTMLEmbed',
     required => 1,
-    weak_ref => 1,
     handles  => ['url_prefix', 'has_url_prefix'],
 );
 
