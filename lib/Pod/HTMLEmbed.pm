@@ -1,7 +1,7 @@
 package Pod::HTMLEmbed;
 use Any::Moose;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use Carp::Clan '^(Mo[ou]se::|Pod::HTMLEmbed(::)?)';
 use Pod::Simple::Search;

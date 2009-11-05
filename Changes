@@ -1,4 +1,7 @@
 Revision history for Perl extension Pod::HTMLEmbed
 
+0.02  2009-11-05T11:28:19+09:00
+      - remove weak_ref option from _context
+
 0.01  2009-11-04T17:45:06+09:00
       - original version
