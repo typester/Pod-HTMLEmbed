@@ -29,8 +29,6 @@ sub run_tests($) {
 __CODE__
     like $pod->section('SYNOPSIS'), qr/$code_expected/, 'code block ok';
     like $pod->section('AUTHOR'), qr!<code>typester\@gmail\.com</code>!, 'code inline ok';
-
-    $pod->has__tree;
 }
 
 run_tests $finder->find('MyTestDoc');
