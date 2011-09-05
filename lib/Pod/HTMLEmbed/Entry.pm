@@ -60,7 +60,7 @@ sub section {
 sub DEMOLISH {
     my $self = shift;
 
-    if ($self->has__tree) {
+    if ($self->_has_tree) {
         $self->_tree->delete;
     }
 }
