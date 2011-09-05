@@ -22,9 +22,11 @@ README
 t/00_load.t
 t/01_basic.t
 t/02_toc.t
+t/03_lists.t
 t/force-moose.pl
 t/pod/MyTestDoc.pod
 t/pod/MyTestDoc2.pod
+t/pod/MyTestDoc3.pod
 xt/pod.t
 xt/pod_coverage.t
 xt/pod_spell.t
