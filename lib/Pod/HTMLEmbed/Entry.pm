@@ -174,6 +174,17 @@ sub _build__tree {
         $li->unshift_content($first_child);
     }
 
+    # remove first <p> from lists
+    @list = $tree->look_down( _tag => 'li' );
+    for my $li (@list) {
+        my @children = $li->content_list;
+        my $num_element = grep { ref $_ } @children;
+
+        if (1 == $num_element and my $p = $children[0] and $children[0]->tag eq 'p') {
+            $p->replace_with_content;
+        }
+    }
+
     # shift header level, and add id attr
     my @header = $tree->look_down( _tag => qr/^h[1-5]$/ );
     for my $header (@header) {
